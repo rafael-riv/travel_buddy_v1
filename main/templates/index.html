@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block titulo %}HOME{% endblock %}
+
+{% block contenido %}
+<h1>Bienvenid@: {{request.session.user.name}}</h1>
+
+
+<div class="container mt-5">
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">id</th>
+				<td scope="col">Destinations</td>
+				<td scope="col">Travel Start Date</td>
+				<td scope="col">Travel End Date</td>
+                <td scope="col"> plan</td>
+				<td scope="col">Actions</td>
+				
+			</tr>
+		</thead>
+		<tbody>
+			{% for viaje in viajes %}
+			<tr>
+				<th scope="row"> {{ viaje.id }} </th>
+				<td> {{viaje.destination}} </td>
+				<td> {{viaje.travel_star}} </td>
+				<td> {{viaje.travel_end}} </td>
+                <td>{{ viaje.plan }}</td>
+				<td scope="col">
+					<a href="#">Show</a>
+					<a href="#">Edit</a>
+					<a href="#"> Delete </a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+    <a href="/logout">SALIR DEL SISTEMA</a>
+</div>
+
+{% endblock %}
+
+{% block libreria %}
+{% endblock %}

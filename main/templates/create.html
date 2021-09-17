@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+    <div class='row align-items-center'>
+        <h1 class='fs-1 my-3'>New Travel</h1>
+        <div class='col-12 my-5'>
+            <form method="POST" action="/create" class="row g-3">
+            {% csrf_token %}
+                <div class="row mb-3">
+                    <label for="title" class="col-sm-2 col-form-label">Destinations</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="destination" value="">
+                    </div>
+                </div>
+            
+                
+                <div class="row mb-3">
+                    <label class="col-form-label col-sm-2">Travel Start Date</label>
+                    <div class="col-sm-5">
+                        <input type="date" id="showdate" name="star" value="" class="mt-1 py-1 px-2 border border-1 rounded">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-form-label col-sm-2"> Travel End Date</label>
+                    <div class="col-sm-5">
+                        <input type="date" id="showdate" name="end" value="" class="mt-1 py-1 px-2 border border-1 rounded">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="textarea" class="form-label">Plan</label>
+                    <textarea class="form-control" id="textarea" name="plan" value="" rows="3"></textarea>
+                </div>
+                
+                <div class="row justify-content-center">
+                    <div class="col-auto"><button type="submit" class="btn btn-outline-success">Let´s GO!!</button></div>
+                    <div class="col-auto"><h5 class="text-end float-end"><a href="/" class="btn btn-outline-primary"> Go Back </a></h5></div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
